@@ -31,7 +31,7 @@ export default function Navbar() {
             <Briefcase size={20} className="text-white" />
           </div>
           <span className="text-xl font-bold text-gray-900">
-            Jobs<span className="text-[#6D00B5]">Hub</span>
+            Job<span className="text-[#6D00B5]">Jet</span>
           </span>
         </Link>
 
