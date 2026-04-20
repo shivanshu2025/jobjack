@@ -29,20 +29,17 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
-        {/* ✅ LOGO FIXED */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-slate-200 group-hover:scale-105 transition">
-            <img
-              src="/assets/img/logo.png"
-              alt="JobJet Logo"
-              className="w-6 h-6 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
-          </div>
+<Link to="/" className="flex items-center gap-2 group">
+  
+  <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
+    <img
+      src="/assets/img/logo.png"
+      alt="JobJet Logo"
+      className="w-full h-full object-contain"
+    />
+  </div>
 
-          <span className="text-xl font-bold text-gray-900 tracking-tight">
-            Job<span className="text-[#6D00B5]">Jet</span>
-          </span>
-        </Link>
+</Link>
 
         {/* NAV LINKS */}
         <nav className="hidden md:flex items-center gap-8">
