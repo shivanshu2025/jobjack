@@ -8,7 +8,6 @@ export default function JobDetails() {
   const { id: _id } = useParams();
   const navigate = useNavigate();
 
-  // Mock job data - in a real app, fetch from API or use context
   const jobData = {
     title: 'Senior Frontend Engineer',
     company: 'Stripe',
