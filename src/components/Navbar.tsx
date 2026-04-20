@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, Briefcase } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'Find Jobs', to: '/jobs' },
-  { label: 'Employers', to: '/employers' },
-  { label: 'About Us', to: '/about' },
+  { label: "Home", to: "/" },
+  { label: "Find Jobs", to: "/jobs" },
+  { label: "Employers", to: "/employers" },
+  { label: "About Us", to: "/about" },
 ];
 
 export default function Navbar() {
@@ -15,27 +15,36 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md' : 'bg-white/90 backdrop-blur-md'
+        scrolled
+          ? "bg-white shadow-md"
+          : "bg-white/90 backdrop-blur-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-     <Link to="/" className="flex items-center gap-2 group">
-  <div className="w-9 h-9 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-slate-200 group-hover:scale-105 transition">
-    
-<img
-  src="/assets/img/logo.png"
-  alt="JobJet Logo"
-  className="w-6 h-6 object-contain"
-/>
-</Link>
+        
+        {/* ✅ LOGO FIXED */}
+        <Link to="/" className="flex items-center gap-2 group">
+          <div className="w-9 h-9 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-slate-200 group-hover:scale-105 transition">
+            <img
+              src="/assets/img/logo.png"
+              alt="JobJet Logo"
+              className="w-6 h-6 object-contain transition-transform duration-300 group-hover:scale-110"
+            />
+          </div>
 
+          <span className="text-xl font-bold text-gray-900 tracking-tight">
+            Job<span className="text-[#6D00B5]">Jet</span>
+          </span>
+        </Link>
+
+        {/* NAV LINKS */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
@@ -49,6 +58,7 @@ export default function Navbar() {
           ))}
         </nav>
 
+        {/* RIGHT BUTTONS */}
         <div className="hidden md:flex items-center gap-3">
           <Link
             to="/contact"
@@ -56,6 +66,7 @@ export default function Navbar() {
           >
             Contact Us
           </Link>
+
           <a
             href="#login"
             className="px-5 py-2 text-sm font-medium text-white bg-[#6D00B5] rounded-lg hover:bg-[#5a0096] transition-colors shadow-sm hover:shadow-md"
@@ -64,6 +75,7 @@ export default function Navbar() {
           </a>
         </div>
 
+        {/* MOBILE MENU BUTTON */}
         <button
           className="md:hidden text-gray-700 hover:text-[#6D00B5] transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -72,6 +84,7 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* MOBILE MENU */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 shadow-lg">
           {navLinks.map((link) => (
@@ -84,11 +97,19 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+
           <div className="flex gap-3 pt-2 border-t border-gray-100">
-            <Link to="/contact" className="flex-1 text-center px-4 py-2 text-sm font-medium text-[#6D00B5] border border-[#6D00B5] rounded-lg">
+            <Link
+              to="/contact"
+              className="flex-1 text-center px-4 py-2 text-sm font-medium text-[#6D00B5] border border-[#6D00B5] rounded-lg"
+            >
               Contact Us
             </Link>
-            <a href="#login" className="flex-1 text-center px-4 py-2 text-sm font-medium text-white bg-[#6D00B5] rounded-lg">
+
+            <a
+              href="#login"
+              className="flex-1 text-center px-4 py-2 text-sm font-medium text-white bg-[#6D00B5] rounded-lg"
+            >
               Login
             </a>
           </div>
